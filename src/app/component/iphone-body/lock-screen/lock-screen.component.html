@@ -1,11 +1,5 @@
 <div class="main">
-    <div class="header">
-        <div class="left">
-            <i class="ri-base-station-fill"></i>
-            <i class="ri-wifi-fill"></i>
-        </div>
-        <div class="right"><span>{{batteryNum}}%</span> <i [class]="battery"></i></div>
-    </div>
+
     <div class="center">
         <div class="time">
             <h1>{{ time | async | date: 'hh:mm' }}
@@ -13,8 +7,4 @@
             <h4>{{rxTime | date }}</h4>
         </div>
     </div>
-</div>
-
-<div class="charge">
-    <button (click)="chargePhone()">Charge</button>
 </div>
