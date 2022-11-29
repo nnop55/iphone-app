@@ -37,7 +37,7 @@ export class IphoneBodyComponent implements OnInit {
           this.battery = 'ri-battery-fill';
           this.phoneBattery();
         }
-      }, 3000)
+      }, 100)
     }
   }
 
@@ -47,6 +47,9 @@ export class IphoneBodyComponent implements OnInit {
       if (this.batteryNum == 0) {
         clearInterval(this.interval)
       }
+      if (this.batteryNum == 30) {
+        this.openDialog()
+      }
       if (this.batteryNum < 30) {
         this.disableChargeButton = true;
         this.battery = 'ri-battery-low-line'
@@ -54,13 +57,11 @@ export class IphoneBodyComponent implements OnInit {
         this.battery = 'ri-battery-fill'
         this.disableChargeButton = false;
       }
-    }, 3000)
+    }, 100)
   }
 
   openDialog(): void {
-    this.dialog.open(BatteryModalComponent, {
-      width: '250px',
-    });
+    this.dialog.open(BatteryModalComponent, { panelClass: 'custom-dialog-container' });
   }
 }
 

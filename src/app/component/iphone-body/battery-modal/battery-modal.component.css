@@ -1,0 +1,56 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    color: black;
+}
+
+h1 {
+    margin: 0px;
+    font-size: 19px;
+    font-weight: 500;
+}
+
+button {
+    margin-right: 8px;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.buttons {
+    padding-top: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.low {
+    border-top: 1px solid dodgerblue;
+    border-bottom: 1px solid dodgerblue;
+    width: 100%;
+    color: dodgerblue;
+    font-size: 20px;
+    padding: 7px 0px;
+    transition: 200ms;
+    cursor: pointer;
+
+}
+
+.close {
+    color: dodgerblue;
+    font-weight: 500;
+    font-size: 20px;
+    padding: 7px 0px;
+    width: 100%;
+    transition: 200ms;
+    cursor: pointer;
+}
+
+.low:hover,
+.close:hover {
+    background-color: #ddeef6;
+}

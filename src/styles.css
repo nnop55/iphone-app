@@ -9,3 +9,10 @@ body {
     background-color: #323232;
     overflow: hidden;
 }
+
+.custom-dialog-container .mat-dialog-container {
+    width: 250px;
+    background: #ddeef6ce;
+    border-radius: 15px;
+    padding: 0px;
+}
