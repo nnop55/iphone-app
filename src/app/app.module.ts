@@ -10,6 +10,8 @@ import { HomeScreenComponent } from './component/iphone-body/home-screen/home-sc
 import { DatePipe } from '@angular/common';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BatteryModalComponent } from './component/iphone-body/battery-modal/battery-modal.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 
 @NgModule({
@@ -24,7 +26,8 @@ import { BatteryModalComponent } from './component/iphone-body/battery-modal/bat
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSnackBarModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

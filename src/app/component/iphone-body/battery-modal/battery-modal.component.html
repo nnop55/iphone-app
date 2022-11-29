@@ -4,7 +4,7 @@
         30% battery remaining.
     </div>
     <div mat-dialog-actions class="buttons">
-        <div mat-dialog-close class="low">Low Power Mode</div>
+        <div mat-dialog-close class="low" (click)="lowPowerOn()">Low Power Mode</div>
         <div mat-dialog-close cdkFocusInitial class="close">Close</div>
     </div>
 </div>

@@ -13,4 +13,8 @@ export class BatteryModalComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  lowPowerOn() {
+    localStorage.setItem('powermode', 'true')
+  }
+
 }

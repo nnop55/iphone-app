@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { BatteryModalComponent } from './battery-modal/battery-modal.component';
 
 @Component({
@@ -18,10 +19,13 @@ export class IphoneBodyComponent implements OnInit {
   clicked: boolean = false;
   disableChargeButton: boolean = false;
 
+  checkPowerMode: any = localStorage.getItem('powermode')
+
   constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.phoneBattery();
+    localStorage.clear();
   }
 
   chargePhone() {
@@ -37,7 +41,10 @@ export class IphoneBodyComponent implements OnInit {
           this.battery = 'ri-battery-fill';
           this.phoneBattery();
         }
-      }, 100)
+        if (this.batteryNum > 30) {
+          localStorage.clear()
+        }
+      }, 3000)
     }
   }
 
@@ -48,21 +55,32 @@ export class IphoneBodyComponent implements OnInit {
         clearInterval(this.interval)
       }
       if (this.batteryNum == 30) {
-        this.openDialog()
+        this.openDialog();
       }
       if (this.batteryNum < 30) {
         this.disableChargeButton = true;
-        this.battery = 'ri-battery-low-line'
+        this.lowPowerMode();
       } else {
         this.battery = 'ri-battery-fill'
         this.disableChargeButton = false;
       }
-    }, 100)
+    }, 3000)
+  }
+
+  lowPowerMode() {
+    if (localStorage.getItem('powermode') != 'true') {
+      this.battery = 'ri-battery-low-line'
+    } else {
+      this.battery = 'ri-battery-line';
+    }
+
   }
 
   openDialog(): void {
     this.dialog.open(BatteryModalComponent, { panelClass: 'custom-dialog-container' });
   }
+
+
 }
 
 

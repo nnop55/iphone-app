@@ -2,6 +2,15 @@
     <button (click)="chargePhone()" [disabled]="!disableChargeButton">Charge Iphone</button>
 </div>
 
+<div class="lock">
+    <button routerLink="/">
+        <p>L</p>
+        <p>O</p>
+        <p>C</p>
+        <p>K</p>
+    </button>
+</div>
+
 <div class="main">
     <div class="top">
         <div>
@@ -20,8 +29,6 @@
         <router-outlet></router-outlet>
     </div>
     <div class="bottom">
-        <button></button>
+        <button routerLink="/homescreen"></button>
     </div>
 </div>
-
-<button (click)="openDialog()">tmp</button>
