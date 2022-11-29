@@ -1,0 +1,65 @@
+.main {
+    border: 1px solid #fff;
+    width: 300px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 40px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(230, 230, 230);
+    box-shadow: 0px 0px 5px #fff;
+    padding: 10px 13px;
+}
+
+.top {
+    height: 50px;
+    margin: 10px 0px;
+}
+
+.top div {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.top div .left {
+    background-color: rgb(1, 1, 31);
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    box-shadow: 0px 0px 2px black;
+}
+
+.top div .right {
+    background-color: rgb(1, 2, 34);
+    border-radius: 20px;
+    width: 50px;
+    height: 5px;
+    box-shadow: 0px 0px 2px black;
+    display: flex;
+    align-items: center;
+    align-self: center;
+}
+
+.center {
+    height: 550vh;
+    width: 100%;
+    margin: auto;
+    box-sizing: border-box;
+    border: 2px solid black;
+}
+
+.bottom {
+    height: 50px;
+}
+
+.bottom button {
+    box-sizing: border-box;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+}
