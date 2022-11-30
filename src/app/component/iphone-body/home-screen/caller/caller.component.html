@@ -1,0 +1,22 @@
+<div class="main">
+    <div class="top">
+        <h1>{{selectedNums.substring(0,9)}} <i (click)="deleteNumFunc()" class="ri-delete-back-2-fill"></i>
+        </h1>
+
+    </div>
+    <div class="center">
+        <div class="centertop">
+            <button (click)="checkNumClicked(item)" ngDefaultControl *ngFor="let item of numberPad">{{item.num}}
+                <p>{{item.text}}</p>
+            </button>
+        </div>
+        <div class="centerbottom">
+            <img (click)="routeCallInner()"
+                src="https://e7.pngegg.com/pngimages/432/941/png-clipart-telephone-call-dialer-android-android-text-telephone-call-thumbnail.png">
+        </div>
+    </div>
+    <div class="bottom">
+        <i class="ri-keyboard-line"></i>
+        <p>Keypad</p>
+    </div>
+</div>

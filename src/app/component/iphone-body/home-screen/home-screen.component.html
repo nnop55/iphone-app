@@ -1,1 +1,18 @@
-<p>home-screen works!</p>
+<div class="main">
+    <div class="top">
+        <div class="topmenu" *ngFor="let item of topMenu">
+            <div class="foricon" [routerLink]="item.router">
+                <img [src]="item.icon" alt="">
+            </div>
+            <p class="text">{{item.text}}</p>
+        </div>
+    </div>
+    <div class="bottom">
+        <div class="bottommenu" *ngFor="let item of bottomMenu">
+            <div class="foricon" [routerLink]="item.router">
+                <img [src]="item.icon" alt="">
+            </div>
+            <p class="text">{{item.text}}</p>
+        </div>
+    </div>
+</div>

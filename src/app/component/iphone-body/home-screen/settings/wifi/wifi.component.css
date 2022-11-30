@@ -1,0 +1,75 @@
+.main {
+    height: 100%;
+    background-color: rgba(216, 216, 216, 0.795);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+* {
+    color: black;
+}
+
+.top {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.wifi {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 200ms;
+}
+
+.wifi:hover {
+    opacity: 0.8;
+}
+
+h1 {
+    margin-bottom: 0px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.icon i {
+    font-size: 25px;
+    cursor: pointer;
+}
+
+h1 i {
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.center {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.center div h3 {
+    margin-bottom: 0px;
+    cursor: pointer;
+    transition: 200ms;
+}
+
+.center div button {
+    cursor: pointer;
+    transition: 200ms;
+    background-color: transparent;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.center div button:hover {
+    background: black;
+    color: #fff;
+}

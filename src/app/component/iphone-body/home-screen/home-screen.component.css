@@ -1,0 +1,50 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    color: #FFF;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+
+img {
+    width: 55px;
+    cursor: pointer;
+    transition: 200ms;
+}
+
+img:hover {
+    opacity: 0.8;
+}
+
+.bottom {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 280px;
+    background: #8e8e8e6b;
+    padding: 5px;
+    border-radius: 15px;
+}
+
+.bottommenu,
+.topmenu {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.text {
+    font-size: 12px;
+    margin-bottom: 0px;
+}

@@ -11,6 +11,11 @@ import { DatePipe } from '@angular/common';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BatteryModalComponent } from './component/iphone-body/battery-modal/battery-modal.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { CallerComponent } from './component/iphone-body/home-screen/caller/caller.component';
+import { FormsModule } from '@angular/forms';
+import { CallerInnerComponent } from './component/iphone-body/home-screen/caller/caller-inner/caller-inner.component';
+import { SettingsComponent } from './component/iphone-body/home-screen/settings/settings.component';
+import { WifiComponent } from './component/iphone-body/home-screen/settings/wifi/wifi.component';
 
 
 
@@ -20,14 +25,20 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     IphoneBodyComponent,
     LockScreenComponent,
     HomeScreenComponent,
-    BatteryModalComponent
+    BatteryModalComponent,
+    CallerComponent,
+    CallerInnerComponent,
+    SettingsComponent,
+    WifiComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    FormsModule,
+
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

@@ -1,0 +1,42 @@
+.main {
+    height: 100%;
+    background-color: rgba(216, 216, 216, 0.795);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+* {
+    color: black;
+}
+
+.top,
+.center {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    width: 70%;
+    margin: auto;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 200ms;
+}
+
+.top:hover,
+.center:hover {
+    opacity: 0.8;
+}
+
+h1 {
+    margin-bottom: 0px;
+}
+
+.center {
+    margin-top: 0px;
+}
+
+.top {
+    margin-bottom: 10px;
+}

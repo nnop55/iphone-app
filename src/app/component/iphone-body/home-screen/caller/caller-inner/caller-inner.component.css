@@ -1,0 +1,42 @@
+.main {
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.813);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 100px;
+}
+
+
+* {
+    color: #fff;
+}
+
+.top {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+}
+
+.top h1 {
+    margin-bottom: 0px;
+    font-size: 29px;
+}
+
+.top p {
+    font-weight: lighter;
+}
+
+img {
+    width: 60px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 200ms;
+}
+
+img:hover {
+    opacity: 0.8;
+}

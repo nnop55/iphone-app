@@ -1,0 +1,22 @@
+<div class="main">
+    <div class="top">
+        <div class="icon">
+            <i routerLink="/settings" class="ri-arrow-go-back-line"></i>
+        </div>
+        <div class="wifi" (click)="toggle()">
+            <h1>Turn {{toggleText}} Wi-Fi <i [class]="iconContent"></i></h1>
+        </div>
+    </div>
+    <div class="center">
+        <ng-container *ngFor="let item of wifiArr">
+            <div *ngIf="wifiToggle" class="wifiselector">
+                <h3 (click)="item.selectedWifi = !item.selectedWifi">{{item.name}}</h3>
+                <div *ngIf="item.selectedWifi">
+                    <p>Wi-Fi password is {{item.pass}}</p>
+                    <input [(ngModel)]="item.passValue" type="password">
+                    <button (click)="connectToWifi()">Connect</button>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</div>

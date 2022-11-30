@@ -10,6 +10,8 @@ import { BatteryModalComponent } from './battery-modal/battery-modal.component';
 })
 export class IphoneBodyComponent implements OnInit {
 
+  // wifiOn = localStorage.getItem('wifiOn');
+  // wifiCheck: boolean = false;
 
   battery: string = 'ri-battery-fill';
   batteryNum: number = 100;
@@ -21,12 +23,25 @@ export class IphoneBodyComponent implements OnInit {
 
   checkPowerMode: any = localStorage.getItem('powermode')
 
-  constructor(public dialog: MatDialog) { }
+
+  constructor(public dialog: MatDialog, private _snackBar: MatSnackBar) {
+
+  }
+
 
   ngOnInit(): void {
     this.phoneBattery();
-    localStorage.clear();
+    localStorage.removeItem('powermode');
+    // this.checkWifi();
   }
+
+  // checkWifi() {
+  //   if (this.wifiOn != 'true') {
+  //     this.wifiCheck = false;
+  //   } else {
+  //     this.wifiCheck = true;
+  //   }
+  // }
 
   chargePhone() {
     this.clicked = true;
@@ -42,7 +57,7 @@ export class IphoneBodyComponent implements OnInit {
           this.phoneBattery();
         }
         if (this.batteryNum > 30) {
-          localStorage.clear()
+          localStorage.removeItem('powermode')
         }
       }, 3000)
     }
@@ -52,7 +67,9 @@ export class IphoneBodyComponent implements OnInit {
     this.interval = setInterval(() => {
       this.batteryNum -= 1;
       if (this.batteryNum == 0) {
-        clearInterval(this.interval)
+        clearInterval(this.interval);
+        this.chargePhone();
+        this.openSnackBar("Your phone charging :)", "OK")
       }
       if (this.batteryNum == 30) {
         this.openDialog();
@@ -78,6 +95,10 @@ export class IphoneBodyComponent implements OnInit {
 
   openDialog(): void {
     this.dialog.open(BatteryModalComponent, { panelClass: 'custom-dialog-container' });
+  }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action);
   }
 
 
