@@ -8,9 +8,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class WifiComponent implements OnInit {
 
-  wifiToggle: boolean = false;
+  wifiToggle: any = false;
   wifiPass: any = new Object();
   toggleText: string = 'on'
+  test!: any;
 
   iconContent: string = 'ri-toggle-line';
 
@@ -26,10 +27,11 @@ export class WifiComponent implements OnInit {
     this.wifiToggle = !this.wifiToggle;
     if (this.wifiToggle == true) {
       this.iconContent = 'ri-toggle-fill';
-      this.toggleText = 'off'
+      this.toggleText = 'off';
     } else {
       this.iconContent = 'ri-toggle-line';
-      this.toggleText = 'on'
+      this.toggleText = 'on';
+      localStorage.setItem('wifiOn', 'false')
     }
   }
 
@@ -42,15 +44,14 @@ export class WifiComponent implements OnInit {
 
   connectToWifi() {
     this.wifiArr.forEach((o: any) => {
-      if (o.passValue == o.pass) {
-        o.passValue = '';
-        console.log(o.pass)
-        console.log(o.passValue)
-
-        this.openSnackBar('Succesfully connected', 'OK')
-        // localStorage.setItem('wifiOn', 'true')
-      } else {
-        console.log("Incorrect password")
+      if (o.selectedWifi == true) {
+        if (o.passValue == o.pass) {
+          this.openSnackBar('Succesfully connected', 'OK')
+          o.passValue = '';
+          localStorage.setItem('wifiOn', 'true')
+        } else {
+          this.openSnackBar('Incorrect password', 'OK')
+        }
       }
 
     })

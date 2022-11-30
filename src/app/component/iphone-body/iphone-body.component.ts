@@ -10,9 +10,6 @@ import { BatteryModalComponent } from './battery-modal/battery-modal.component';
 })
 export class IphoneBodyComponent implements OnInit {
 
-  // wifiOn = localStorage.getItem('wifiOn');
-  // wifiCheck: boolean = false;
-
   battery: string = 'ri-battery-fill';
   batteryNum: number = 100;
   interval: any;
@@ -21,27 +18,26 @@ export class IphoneBodyComponent implements OnInit {
   clicked: boolean = false;
   disableChargeButton: boolean = false;
 
-  checkPowerMode: any = localStorage.getItem('powermode')
+  checkPowerMode: any = localStorage.getItem('powermode');
+
+  wifiOn: boolean = false;
 
 
   constructor(public dialog: MatDialog, private _snackBar: MatSnackBar) {
-
   }
 
 
   ngOnInit(): void {
     this.phoneBattery();
     localStorage.removeItem('powermode');
-    // this.checkWifi();
+
+    if (localStorage.getItem('wifiOn') != 'true') {
+      this.wifiOn = false;
+    } else {
+      this.wifiOn = true;
+    }
   }
 
-  // checkWifi() {
-  //   if (this.wifiOn != 'true') {
-  //     this.wifiCheck = false;
-  //   } else {
-  //     this.wifiCheck = true;
-  //   }
-  // }
 
   chargePhone() {
     this.clicked = true;
