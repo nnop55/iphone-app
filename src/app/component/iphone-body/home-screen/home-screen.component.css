@@ -12,8 +12,9 @@
 
 .top {
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
     margin-top: 40px;
+    gap: 15px;
 }
 
 

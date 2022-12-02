@@ -26,6 +26,11 @@ import { LoadingComponent } from './component/shared/loading/loading.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { LoadingService } from './services/loading.service';
 import { LoadingInterceptor } from './interceptor/loading.interceptor';
+import { WebcamModule } from 'ngx-webcam';
+import { CameraComponent } from './component/iphone-body/home-screen/iphonecamera/camera/camera.component';
+import { PhotoComponent } from './component/iphone-body/home-screen/iphonecamera/photo/photo.component';
+
+
 
 
 
@@ -47,6 +52,8 @@ import { LoadingInterceptor } from './interceptor/loading.interceptor';
     NarutoComponent,
     RickMortyInnerComponent,
     LoadingComponent,
+    CameraComponent,
+    PhotoComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,7 +63,8 @@ import { LoadingInterceptor } from './interceptor/loading.interceptor';
     MatSnackBarModule,
     FormsModule,
     HttpClientModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    WebcamModule
   ],
   providers: [DatePipe,
     LoadingService,

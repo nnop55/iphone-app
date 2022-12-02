@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { CallerInnerComponent } from './component/iphone-body/home-screen/caller/caller-inner/caller-inner.component';
 import { CallerComponent } from './component/iphone-body/home-screen/caller/caller.component';
 import { HomeScreenComponent } from './component/iphone-body/home-screen/home-screen.component';
+import { CameraComponent } from './component/iphone-body/home-screen/iphonecamera/camera/camera.component';
+import { PhotoComponent } from './component/iphone-body/home-screen/iphonecamera/photo/photo.component';
 import { NarutoComponent } from './component/iphone-body/home-screen/safari/naruto/naruto.component';
 import { RickMortyInnerComponent } from './component/iphone-body/home-screen/safari/rick-morty/rick-morty-inner/rick-morty-inner.component';
 import { RickMortyComponent } from './component/iphone-body/home-screen/safari/rick-morty/rick-morty.component';
@@ -24,6 +26,8 @@ const routes: Routes = [
       { path: 'rickmorty', component: RickMortyComponent },
       { path: 'naruto', component: NarutoComponent },
       { path: 'character/:name', component: RickMortyInnerComponent },
+      { path: 'camera', component: CameraComponent },
+      { path: 'photo', component: PhotoComponent }
     ]
   }
 ];

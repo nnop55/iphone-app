@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <webcam [trigger]="triggerObservable" [width]="296" [height]="300" (imageCapture)="handleImage($event)">
+            </webcam>
+            <button class="btn" (click)="triggerSnapshot();">Take A Snapshot</button>
+        </div>
+        <div class="col-md-6">
+            <div id="results">Your captured image will appear in photos!!</div>
+        </div>
+    </div>
+</div>

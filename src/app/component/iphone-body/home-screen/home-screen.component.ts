@@ -59,19 +59,14 @@ export class HomeScreenComponent implements OnInit {
   topMenuFunc() {
     this.topMenu = [
       {
-        icon: 'https://i.pinimg.com/originals/f3/51/98/f35198a7414715799acad8b568c5a08e.png',
-        text: 'Maps',
-        router: null
-      },
-      {
         icon: 'https://i.pinimg.com/originals/de/e7/22/dee722e5e0bdd6950d754f74a8a49065.png',
         text: 'Photos',
-        router: null
+        router: '/photo'
       },
       {
         icon: 'https://i.pinimg.com/originals/e2/bc/2b/e2bc2b005d593253f62a4727d3da5d4f.png',
         text: 'Camera',
-        router: null
+        router: '/camera'
       },
       {
         icon: 'https://i.pinimg.com/originals/60/c3/9d/60c39d7f1cc24db55f677b7510ea7038.png',
