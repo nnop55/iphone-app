@@ -1,13 +1,13 @@
 <div class="main">
     <div class="input">
         <label>Mobile number</label>
-        <input type="text">
+        <input [(ngModel)]="mobileNum" type="text">
     </div>
     <div class="center">
-        sented mesage
+        <p *ngIf="sentMessage">{{textMessage}}</p>
     </div>
     <div class="message">
-        <textarea placeholder="message"></textarea>
-        <button>Sent</button>
+        <textarea placeholder="message" [(ngModel)]="textMessage"></textarea>
+        <button (click)="sent()">Sent</button>
     </div>
 </div>
