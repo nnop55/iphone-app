@@ -28,7 +28,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 
 ##Images
-## https://startling-platypus-366ca0.netlify.app/
+## https://animated-pithivier-fb361f.netlify.app/
 
 ##You can connect wi-fi, call,sent message, open browser and see rick and morty or naruto, you can use calculator, take a photo with camera and saves in photos gallery, also you can charge your iphone :)
 
