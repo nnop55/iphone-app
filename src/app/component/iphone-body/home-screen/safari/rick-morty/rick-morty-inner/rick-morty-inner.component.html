@@ -1,7 +1,10 @@
+<app-loading *ngIf="loadingStatus"></app-loading>
+
+
 <div class="main">
     <div class="cardsarea">
         <div class="card" *ngFor="let item of currentPerson">
-            <img [src]="item.image" alt="">
+            <img [src]="item.image">
             <div class="txts">
                 <h5><b>Origin</b> : {{item.origin.name}}</h5>
                 <h5><b>Status</b> : {{item.status}}</h5>

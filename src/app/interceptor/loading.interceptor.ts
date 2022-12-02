@@ -3,16 +3,38 @@ import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
-  HttpInterceptor
+  HttpInterceptor,
+  HttpResponse
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { catchError, map, Observable } from 'rxjs';
+import { LoadingService } from '../services/loading.service';
 
 @Injectable()
 export class LoadingInterceptor implements HttpInterceptor {
 
-  constructor() {}
+  constructor(private loader: LoadingService) { }
 
-  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    return next.handle(request);
+  intercept(
+    request: HttpRequest<any>,
+    next: HttpHandler
+  ): Observable<HttpEvent<any>> {
+    this.loader.handle(request.url, true);
+    return next
+      .handle(request)
+      .pipe(
+        catchError((error: any) => {
+          console.log(error);
+          this.loader.handle(error.url, false);
+          return error;
+        })
+      )
+      .pipe(
+        map((evt: any) => {
+          if (evt instanceof HttpResponse) {
+            this.loader.handle(evt.url ?? "", false);
+          }
+          return evt;
+        })
+      );
   }
 }

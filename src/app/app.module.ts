@@ -18,10 +18,16 @@ import { SettingsComponent } from './component/iphone-body/home-screen/settings/
 import { WifiComponent } from './component/iphone-body/home-screen/settings/wifi/wifi.component';
 import { SafariComponent } from './component/iphone-body/home-screen/safari/safari.component';
 import { TurnWifiAlertComponent } from './component/iphone-body/home-screen/turn-wifi-alert/turn-wifi-alert.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RickMortyComponent } from './component/iphone-body/home-screen/safari/rick-morty/rick-morty.component';
 import { NarutoComponent } from './component/iphone-body/home-screen/safari/naruto/naruto.component';
 import { RickMortyInnerComponent } from './component/iphone-body/home-screen/safari/rick-morty/rick-morty-inner/rick-morty-inner.component';
+import { LoadingComponent } from './component/shared/loading/loading.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { LoadingService } from './services/loading.service';
+import { LoadingInterceptor } from './interceptor/loading.interceptor';
+
+
 
 
 @NgModule({
@@ -40,6 +46,7 @@ import { RickMortyInnerComponent } from './component/iphone-body/home-screen/saf
     RickMortyComponent,
     NarutoComponent,
     RickMortyInnerComponent,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,9 +55,16 @@ import { RickMortyInnerComponent } from './component/iphone-body/home-screen/saf
     MatDialogModule,
     MatSnackBarModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatProgressSpinnerModule
   ],
-  providers: [DatePipe],
+  providers: [DatePipe,
+    LoadingService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoadingInterceptor,
+      multi: true
+    },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
