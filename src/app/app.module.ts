@@ -29,6 +29,8 @@ import { LoadingInterceptor } from './interceptor/loading.interceptor';
 import { WebcamModule } from 'ngx-webcam';
 import { CameraComponent } from './component/iphone-body/home-screen/iphonecamera/camera/camera.component';
 import { PhotoComponent } from './component/iphone-body/home-screen/iphonecamera/photo/photo.component';
+import { MessageComponent } from './component/iphone-body/home-screen/message/message.component';
+import { CalculatorComponent } from './component/iphone-body/home-screen/calculator/calculator.component';
 
 
 
@@ -54,6 +56,8 @@ import { PhotoComponent } from './component/iphone-body/home-screen/iphonecamera
     LoadingComponent,
     CameraComponent,
     PhotoComponent,
+    MessageComponent,
+    CalculatorComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,7 +68,7 @@ import { PhotoComponent } from './component/iphone-body/home-screen/iphonecamera
     FormsModule,
     HttpClientModule,
     MatProgressSpinnerModule,
-    WebcamModule
+    WebcamModule,
   ],
   providers: [DatePipe,
     LoadingService,

@@ -44,13 +44,13 @@ export class HomeScreenComponent implements OnInit {
       {
         icon: 'https://i.pinimg.com/originals/7b/7b/c6/7b7bc658d3fce83780679e84dc62f2fa.png',
         text: 'Messages',
-        router: null,
+        router: '/message',
         function: null
       },
       {
-        icon: 'https://i.pinimg.com/originals/ae/2e/56/ae2e5651b74a00d5d31b8c6453fa3ebb.png',
-        text: 'Musics',
-        router: null,
+        icon: 'https://i.pinimg.com/originals/a7/f2/b2/a7f2b2c622726633c316b36bd1fcf064.png',
+        text: 'Calculator',
+        router: '/calculator',
         function: null
       }
     ]

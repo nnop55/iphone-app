@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { map, Observable, shareReplay, timer } from 'rxjs';
 import { WifiService } from 'src/app/services/wifi.service';
 import { BatteryModalComponent } from './battery-modal/battery-modal.component';
 
@@ -10,6 +11,11 @@ import { BatteryModalComponent } from './battery-modal/battery-modal.component';
   styleUrls: ['./iphone-body.component.css']
 })
 export class IphoneBodyComponent implements OnInit {
+
+  private _time$: Observable<Date> = timer(0, 1000).pipe(
+    map(tick => new Date()),
+    shareReplay(1)
+  );
 
   battery: string = 'ri-battery-fill';
   batteryNum: number = 100;
@@ -34,6 +40,9 @@ export class IphoneBodyComponent implements OnInit {
     localStorage.removeItem('powermode');
   }
 
+  get time() {
+    return this._time$;
+  }
 
   chargePhone() {
     this.clicked = true;

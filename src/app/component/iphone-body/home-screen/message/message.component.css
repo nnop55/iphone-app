@@ -1,0 +1,35 @@
+* {
+    color: #fff;
+}
+
+.main {
+    background-color: rgb(42, 42, 42);
+    height: 469px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 30px;
+    gap: 10px;
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+}
+
+.canter {
+    height: 200px;
+}
+
+input,
+textarea {
+    color: black;
+}
+
+textarea {
+    min-width: 220px;
+    max-width: 220px;
+    min-height: 100px;
+    max-height: 100px;
+}

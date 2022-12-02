@@ -23,6 +23,7 @@
             <div class="left">
                 <i class="ri-base-station-fill"></i>
                 <i *ngIf="wifiService.wifiOn" class="ri-wifi-fill"></i>
+                <p>{{ time | async | date: 'hh:mm' }}</p>
             </div>
             <div class="right"><span>{{batteryNum}}%</span> <i [class]="battery"></i></div>
         </div>

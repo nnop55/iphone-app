@@ -28,9 +28,6 @@ export class LockScreenComponent implements OnInit {
       .subscribe((time: any) => {
         this.rxTime = time;
       });
-
-
-
   }
 
   get time() {

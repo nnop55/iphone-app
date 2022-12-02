@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="calculator">
+        <div class="display-screen">
+            <div class="display">{{displayDivController}}</div>
+        </div>
+        <div class="buttons">
+            <table>
+                <tr>
+                    <td *ngFor="let item of first"><button [class]="item.class" [id]="item.id"
+                            (click)="calculateResult(item)">{{item.button}} <i [class]="item.i"></i> </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td *ngFor="let item of second"><button [class]="item.class" [id]="item.id"
+                            (click)="calculateResult(item)">{{item.button}}</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td *ngFor="let item of third"><button [class]="item.class" [id]="item.id"
+                            (click)="calculateResult(item)">{{item.button}}</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td *ngFor="let item of fourth" [rowSpan]="item.rowspan"><button [class]="item.class" [id]="item.id"
+                            (click)="calculateResult(item)">{{item.button}}</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td *ngFor="let item of fifthy"><button [class]="item.class" [id]="item.id"
+                            (click)="calculateResult(item)">{{item.button}}</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
