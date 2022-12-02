@@ -52,7 +52,7 @@ export class IphoneBodyComponent implements OnInit {
       this.interval2 = setInterval(() => {
         this.batteryNum += 1
         this.battery = 'ri-battery-charge-line'
-        if (this.batteryNum == 100) {
+        if (this.batteryNum == 99) {
           clearInterval(this.interval2);
           this.battery = 'ri-battery-fill';
           this.phoneBattery();
