@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { WifiService } from 'src/app/services/wifi.service';
 
 @Component({
   selector: 'app-wifi',
@@ -11,16 +12,25 @@ export class WifiComponent implements OnInit {
   wifiToggle: any = false;
   wifiPass: any = new Object();
   toggleText: string = 'on'
-  test!: any;
 
   iconContent: string = 'ri-toggle-line';
 
   wifiArr: any[] = [];
 
-  constructor(private _snackBar: MatSnackBar) { }
+  constructor(private _snackBar: MatSnackBar, private wifiService: WifiService) { }
 
   ngOnInit(): void {
     this.wifiArrFunc();
+
+    if (this.wifiService.wifiOn == true) {
+      this.iconContent = 'ri-toggle-fill';
+      this.toggleText = 'off';
+      this.wifiToggle = true;
+    } else {
+      this.iconContent = 'ri-toggle-line';
+      this.toggleText = 'on';
+      this.wifiToggle = false;
+    }
   }
 
   toggle() {
@@ -31,7 +41,7 @@ export class WifiComponent implements OnInit {
     } else {
       this.iconContent = 'ri-toggle-line';
       this.toggleText = 'on';
-      localStorage.setItem('wifiOn', 'false')
+      this.wifiService.turnOffWifi();
     }
   }
 
@@ -48,7 +58,7 @@ export class WifiComponent implements OnInit {
         if (o.passValue == o.pass) {
           this.openSnackBar('Succesfully connected', 'OK')
           o.passValue = '';
-          localStorage.setItem('wifiOn', 'true')
+          this.wifiService.turnOnWifi();
         } else {
           this.openSnackBar('Incorrect password', 'OK')
         }

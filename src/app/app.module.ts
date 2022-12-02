@@ -16,7 +16,12 @@ import { FormsModule } from '@angular/forms';
 import { CallerInnerComponent } from './component/iphone-body/home-screen/caller/caller-inner/caller-inner.component';
 import { SettingsComponent } from './component/iphone-body/home-screen/settings/settings.component';
 import { WifiComponent } from './component/iphone-body/home-screen/settings/wifi/wifi.component';
-
+import { SafariComponent } from './component/iphone-body/home-screen/safari/safari.component';
+import { TurnWifiAlertComponent } from './component/iphone-body/home-screen/turn-wifi-alert/turn-wifi-alert.component';
+import { HttpClientModule } from '@angular/common/http';
+import { RickMortyComponent } from './component/iphone-body/home-screen/safari/rick-morty/rick-morty.component';
+import { NarutoComponent } from './component/iphone-body/home-screen/safari/naruto/naruto.component';
+import { RickMortyInnerComponent } from './component/iphone-body/home-screen/safari/rick-morty/rick-morty-inner/rick-morty-inner.component';
 
 
 @NgModule({
@@ -30,6 +35,11 @@ import { WifiComponent } from './component/iphone-body/home-screen/settings/wifi
     CallerInnerComponent,
     SettingsComponent,
     WifiComponent,
+    SafariComponent,
+    TurnWifiAlertComponent,
+    RickMortyComponent,
+    NarutoComponent,
+    RickMortyInnerComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +48,7 @@ import { WifiComponent } from './component/iphone-body/home-screen/settings/wifi
     MatDialogModule,
     MatSnackBarModule,
     FormsModule,
-
+    HttpClientModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

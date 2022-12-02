@@ -1,0 +1,11 @@
+<div class="main">
+    <div class="cardsarea">
+        <div class="card" *ngFor="let item of narutoList">
+            <img [src]="item.images.jpg.image_url" alt="">
+            <h3>{{item.title}}</h3>
+        </div>
+    </div>
+    <div class="bottom">
+        <i class="ri-arrow-left-circle-fill" routerLink="/safari"></i>
+    </div>
+</div>

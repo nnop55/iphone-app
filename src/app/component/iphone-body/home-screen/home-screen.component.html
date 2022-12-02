@@ -10,7 +10,7 @@
     <div class="bottom">
         <div class="bottommenu" *ngFor="let item of bottomMenu">
             <div class="foricon" [routerLink]="item.router">
-                <img [src]="item.icon" alt="">
+                <img [src]="item.icon" (click)="item.function()">
             </div>
             <p class="text">{{item.text}}</p>
         </div>

@@ -1,0 +1,14 @@
+<div class="main">
+    <div class="cardsarea">
+        <div class="card" *ngFor="let item of currentPerson">
+            <img [src]="item.image" alt="">
+            <div class="txts">
+                <h5><b>Origin</b> : {{item.origin.name}}</h5>
+                <h5><b>Status</b> : {{item.status}}</h5>
+            </div>
+        </div>
+    </div>
+    <div class="bottom">
+        <i class="ri-arrow-left-circle-fill" routerLink="/rickmorty"></i>
+    </div>
+</div>

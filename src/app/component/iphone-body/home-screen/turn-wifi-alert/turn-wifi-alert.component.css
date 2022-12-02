@@ -1,0 +1,56 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    color: black;
+}
+
+h1 {
+    margin: 0px;
+    font-size: 19px;
+    font-weight: 500;
+}
+
+button {
+    margin-right: 8px;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.main h1 {
+    padding-top: 10px;
+}
+
+.textcontent {
+    padding-bottom: 5px;
+}
+
+.buttons {
+    border-top: 1px solid rgb(101, 101, 101);
+    display: flex;
+    justify-content: space-around;
+}
+
+.settings {
+    color: dodgerblue;
+    font-size: 20px;
+    padding: 7px 0px;
+    transition: 200ms;
+    cursor: pointer;
+    padding-right: 30px;
+    border-right: 1px solid rgb(101, 101, 101);
+}
+
+.close {
+    color: dodgerblue;
+    font-weight: 500;
+    font-size: 20px;
+    padding: 7px 0px;
+    transition: 200ms;
+    cursor: pointer;
+    padding-right: 15px;
+}

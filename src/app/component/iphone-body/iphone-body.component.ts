@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { WifiService } from 'src/app/services/wifi.service';
 import { BatteryModalComponent } from './battery-modal/battery-modal.component';
 
 @Component({
@@ -20,22 +21,17 @@ export class IphoneBodyComponent implements OnInit {
 
   checkPowerMode: any = localStorage.getItem('powermode');
 
-  wifiOn: boolean = false;
 
-
-  constructor(public dialog: MatDialog, private _snackBar: MatSnackBar) {
+  constructor(public dialog: MatDialog,
+    private _snackBar: MatSnackBar,
+    public wifiService: WifiService
+  ) {
   }
 
 
   ngOnInit(): void {
     this.phoneBattery();
     localStorage.removeItem('powermode');
-
-    if (localStorage.getItem('wifiOn') != 'true') {
-      this.wifiOn = false;
-    } else {
-      this.wifiOn = true;
-    }
   }
 
 
@@ -86,7 +82,6 @@ export class IphoneBodyComponent implements OnInit {
     } else {
       this.battery = 'ri-battery-line';
     }
-
   }
 
   openDialog(): void {
@@ -96,6 +91,7 @@ export class IphoneBodyComponent implements OnInit {
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action);
   }
+
 
 
 }

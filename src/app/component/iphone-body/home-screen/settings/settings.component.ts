@@ -7,19 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SettingsComponent implements OnInit {
 
-  // userName = localStorage.getItem('username');
-
   constructor() {
 
   }
 
   ngOnInit(): void {
   }
-
-
-  // icloudName() {
-  //   let nameAlert: any = prompt('Enter your name');
-  //   localStorage.setItem('username', nameAlert);
-  // }
 
 }

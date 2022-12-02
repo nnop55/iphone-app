@@ -40,3 +40,10 @@ h1 {
 .top {
     margin-bottom: 10px;
 }
+
+.top div h1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,54 @@
+.main {
+    background-color: rgb(42, 42, 42);
+    height: 499px;
+    overflow: auto;
+}
+
+* {
+    color: #fff;
+}
+
+h5 {
+    margin-bottom: 0px;
+}
+
+i {
+    font-size: 30px;
+    cursor: pointer;
+    transition: 200ms;
+    position: fixed;
+}
+
+i:hover {
+    opacity: 0.8;
+}
+
+.cardsarea {
+    height: 425px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    padding-top: 40px;
+}
+
+.card img {
+    width: 80px;
+    border-radius: 5px 0px 0px 5px;
+}
+
+.card {
+    width: 225px;
+    background-color: rgba(114, 114, 114, 0.628);
+    box-shadow: 0px 0px 5px black;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.txts {
+    display: flex;
+    flex-direction: column;
+}

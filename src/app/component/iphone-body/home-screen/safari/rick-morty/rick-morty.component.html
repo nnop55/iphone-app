@@ -1,0 +1,12 @@
+<div class="main">
+    <div class="cardsarea">
+        <div class="card" *ngFor="let item of rickMortyList">
+            <img [src]="item.image" alt="">
+            <h3>{{item.name}}</h3>
+            <button routerLink="/character/?name={{item.name}}">Show Alter egos</button>
+        </div>
+    </div>
+    <div class="bottom">
+        <i class="ri-arrow-left-circle-fill" routerLink="/safari"></i>
+    </div>
+</div>
