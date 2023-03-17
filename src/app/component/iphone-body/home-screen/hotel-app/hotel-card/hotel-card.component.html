@@ -1,0 +1,17 @@
+<app-loading *ngIf="loadingStatus"></app-loading>
+
+<mat-drawer-container autosize>
+
+    <div class="main" *ngIf="!loadingStatus">
+        <div class="cardsarea">
+            <div class="card" *ngFor="let item of http.hotelsData" routerLink="/hotel-app/hotel-inner/{{item.id}}">
+                <img [src]="item.mainImages[0]" alt="">
+                <h3>{{item.name}}</h3>
+            </div>
+        </div>
+    </div>
+
+    <mat-drawer [opened]="shared.isOpened" class="example-sidenav" mode="side">
+        <app-filter-drawer [hotelCard]="self"></app-filter-drawer>
+    </mat-drawer>
+</mat-drawer-container>

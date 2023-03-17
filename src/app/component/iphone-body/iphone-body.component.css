@@ -1,6 +1,6 @@
 .main {
     border: 1px solid #fff;
-    width: 300px;
+    width: 290px;
     height: 600px;
     display: flex;
     flex-direction: column;
@@ -74,7 +74,7 @@ i {
     display: flex;
     justify-content: space-between;
     position: absolute;
-    width: 295px;
+    width: 282px;
 }
 
 .header .left {

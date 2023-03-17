@@ -2,7 +2,7 @@
     <div class="top">
         <div class="topmenu" *ngFor="let item of topMenu">
             <div class="foricon" [routerLink]="item.router">
-                <img [src]="item.icon" alt="">
+                <img [src]="item.icon" [style]="item.imgStyle">
             </div>
             <p class="text">{{item.text}}</p>
         </div>

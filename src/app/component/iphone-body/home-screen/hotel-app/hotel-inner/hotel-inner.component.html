@@ -1,0 +1,134 @@
+<div class="main">
+  <div class="slider" #slide>
+    <div class="btns left">
+      <button class="prev" (click)="prevSlide()">&#10094;</button>
+    </div>
+    <div class="slides">
+      <img class="active" *ngFor="let image of currentHotel?.mainImages" [src]="image" alt="image" />
+    </div>
+    <div class="btns right">
+      <button class="next" (click)="nextSlide()">&#10095;</button>
+    </div>
+  </div>
+  <div class="hotel-title b-b pd-t">
+    <h1>{{ currentHotel?.address }}</h1>
+    <p class="rating">
+      <span>
+        <mat-icon>star</mat-icon>
+      </span>
+      <span>
+        {{ currentHotel?.starCount }}
+      </span>
+    </p>
+  </div>
+  <div class="hotel-hosted-by pd-t b-b">
+    <div class="hosted-by">
+      <h2>
+        {{ currentHotel?.name }} hosted by
+        {{ currentHotel?.hostInformation.hostName }}
+      </h2>
+    </div>
+    <div class="host-info">
+      <h3>Host information</h3>
+      <p>{{ currentHotel?.hostInformation.emailAddress }}</p>
+      <p>{{ currentHotel?.hostInformation.phoneNumber }}</p>
+      <p>{{ currentHotel?.hostLanguage }}</p>
+    </div>
+  </div>
+  <div class="description pd-t b-b">
+    <div class="desc b-b">
+      <p>{{ currentHotel?.description }}</p>
+    </div>
+    <div class="cancellation-days pd-t">
+      <h2>Free cancellation before {{ tmpDate }}.</h2>
+    </div>
+  </div>
+  <div class="rooms pd-t b-b">
+    <div *ngIf="currentHotel?.rooms.length > 1">
+      <button class="arrow" (click)="scrollLeft()">
+        <mat-icon>arrow_left</mat-icon>
+      </button>
+    </div>
+    <div class="scroll-content" #widgetsContent>
+      <div class="card" *ngFor="let item of currentHotel?.rooms">
+        <div class="room-name">
+          <span>
+            <mat-icon>bed</mat-icon>
+          </span>
+          <h3>{{ item.name }}</h3>
+        </div>
+        <div class="room-info">
+          <p>Beds: {{ item.bedsCount }}</p>
+          <p>Bathrooms: {{ item.bathRoomsCount }}</p>
+          <p>Person: {{ item.personsCount }}</p>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="currentHotel?.rooms.length > 1">
+      <button class="arrow" (click)="scrollRight()">
+        <mat-icon>arrow_right</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="place-offers pd-t b-b">
+    <ng-container *ngIf="!showAllPlaceOffers">
+      <p *ngFor="
+          let item of currentHotel?.placeOffers
+            | slice : currentHotel?.placeOffers.length - 5
+        ">
+        {{ item }}
+      </p>
+    </ng-container>
+    <ng-container *ngIf="showAllPlaceOffers">
+      <p *ngFor="let item of currentHotel?.placeOffers">
+        {{ item }}
+      </p>
+    </ng-container>
+    <div>
+      <button (click)="showAllPlaceOffers = !showAllPlaceOffers" mat-stroked-button>
+        <span *ngIf="!showAllPlaceOffers">Show more</span>
+        <span *ngIf="showAllPlaceOffers">Show less</span>
+      </button>
+    </div>
+  </div>
+  <div class="map pd-t b-b">
+    <app-google-map [lat]="currentHotel?.latitude" [long]="currentHotel?.longitude"
+      [hotelName]="currentHotel?.name"></app-google-map>
+  </div>
+  <div class="reserve b-b">
+    <div class="date-inps">
+      <div class="check-in">
+        <mat-form-field class="date-inp">
+          <mat-label>Check in</mat-label>
+          <input matInput [matDatepicker]="check_in" [min]="todayDate" [(ngModel)]="checkInDate"
+            (dateInput)="checkIn($event)" />
+          <mat-datepicker-toggle matSuffix [for]="check_in"></mat-datepicker-toggle>
+          <mat-datepicker #check_in></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div class="check-out">
+        <mat-form-field class="date-inp">
+          <mat-label>Check out</mat-label>
+          <input matInput [matDatepicker]="check_out" [min]="checkInDate" [disabled]="checkInInp == undefined"
+            (dateInput)="checkOut($event)" />
+          <mat-datepicker-toggle matSuffix [for]="check_out"></mat-datepicker-toggle>
+          <mat-datepicker #check_out></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="price">
+      <div class="diffDates">
+        <p *ngIf="differenceBtwReserve > 1">{{currentHotel?.rooms[0].price}}$ x {{differenceBtwReserve }} nights</p>
+        <p>{{currentHotel?.rooms[0].price * differenceBtwReserve }}$</p>
+      </div>
+
+      <button class="reserve-btn"
+        [disabled]="checkInInp == undefined || checkOutInp == undefined || checkInInp > checkOutInp" mat-stroked-button>
+        Reserve
+      </button>
+
+    </div>
+
+  </div>
+</div>

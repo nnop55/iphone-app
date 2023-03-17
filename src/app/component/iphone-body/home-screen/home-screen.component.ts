@@ -61,17 +61,26 @@ export class HomeScreenComponent implements OnInit {
       {
         icon: 'https://i.pinimg.com/originals/de/e7/22/dee722e5e0bdd6950d754f74a8a49065.png',
         text: 'Photos',
-        router: '/photo'
+        router: '/photo',
+        imgStyle: null
       },
       {
         icon: 'https://i.pinimg.com/originals/e2/bc/2b/e2bc2b005d593253f62a4727d3da5d4f.png',
         text: 'Camera',
-        router: '/camera'
+        router: '/camera',
+        imgStyle: null
       },
       {
         icon: 'https://i.pinimg.com/originals/60/c3/9d/60c39d7f1cc24db55f677b7510ea7038.png',
         text: 'Settings',
-        router: '/settings'
+        router: '/settings',
+        imgStyle: null
+      },
+      {
+        icon: 'https://logodix.com/logo/644558.png',
+        text: 'Book hotels',
+        router: '/hotel-app',
+        imgStyle: 'border-radius: 10px; width:50px; height:50px;'
       }
     ]
   }

@@ -1,9 +1,14 @@
+import { compileClassMetadata } from '@angular/compiler';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CalculatorComponent } from './component/iphone-body/home-screen/calculator/calculator.component';
 import { CallerInnerComponent } from './component/iphone-body/home-screen/caller/caller-inner/caller-inner.component';
 import { CallerComponent } from './component/iphone-body/home-screen/caller/caller.component';
 import { HomeScreenComponent } from './component/iphone-body/home-screen/home-screen.component';
+import { GoogleMapComponent } from './component/iphone-body/home-screen/hotel-app/google-map/google-map.component';
+import { HotelCardComponent } from './component/iphone-body/home-screen/hotel-app/hotel-card/hotel-card.component';
+import { HotelInnerComponent } from './component/iphone-body/home-screen/hotel-app/hotel-inner/hotel-inner.component';
+import { HotelMainComponent } from './component/iphone-body/home-screen/hotel-app/hotel-main/hotel-main.component';
 import { CameraComponent } from './component/iphone-body/home-screen/iphonecamera/camera/camera.component';
 import { PhotoComponent } from './component/iphone-body/home-screen/iphonecamera/photo/photo.component';
 import { MessageComponent } from './component/iphone-body/home-screen/message/message.component';
@@ -31,7 +36,14 @@ const routes: Routes = [
       { path: 'camera', component: CameraComponent },
       { path: 'photo', component: PhotoComponent },
       { path: 'message', component: MessageComponent },
-      { path: 'calculator', component: CalculatorComponent }
+      { path: 'calculator', component: CalculatorComponent },
+      {
+        path: 'hotel-app', component: HotelMainComponent, children: [
+          { path: '', component: HotelCardComponent },
+          { path: 'hotel-inner/:id', component: HotelInnerComponent },
+        ]
+      },
+
     ]
   }
 ];

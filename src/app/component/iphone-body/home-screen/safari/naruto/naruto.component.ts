@@ -15,7 +15,7 @@ export class NarutoComponent implements OnInit {
   constructor(private http: HttpService, private loader: LoadingService) { }
 
   ngOnInit(): void {
-    this.loader.loadingEmitter.subscribe(response => {
+    this.loader.loadingEmitter.subscribe((response: any) => {
       console.log(response);
       this.loadingStatus = response;
     })
@@ -23,7 +23,7 @@ export class NarutoComponent implements OnInit {
   }
 
   getNarutos() {
-    this.http.getNaruto().subscribe(res => {
+    this.http.getNaruto().subscribe((res: any) => {
       this.narutoList = res.data;
       console.log(this.narutoList);
       this.loadingStatus = false;

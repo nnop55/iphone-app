@@ -8,9 +8,7 @@ import { IphoneBodyComponent } from './component/iphone-body/iphone-body.compone
 import { LockScreenComponent } from './component/iphone-body/lock-screen/lock-screen.component';
 import { HomeScreenComponent } from './component/iphone-body/home-screen/home-screen.component';
 import { DatePipe } from '@angular/common';
-import { MatDialogModule } from '@angular/material/dialog';
 import { BatteryModalComponent } from './component/iphone-body/battery-modal/battery-modal.component';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { CallerComponent } from './component/iphone-body/home-screen/caller/caller.component';
 import { FormsModule } from '@angular/forms';
 import { CallerInnerComponent } from './component/iphone-body/home-screen/caller/caller-inner/caller-inner.component';
@@ -23,7 +21,6 @@ import { RickMortyComponent } from './component/iphone-body/home-screen/safari/r
 import { NarutoComponent } from './component/iphone-body/home-screen/safari/naruto/naruto.component';
 import { RickMortyInnerComponent } from './component/iphone-body/home-screen/safari/rick-morty/rick-morty-inner/rick-morty-inner.component';
 import { LoadingComponent } from './component/shared/loading/loading.component';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { LoadingService } from './services/loading.service';
 import { LoadingInterceptor } from './interceptor/loading.interceptor';
 import { WebcamModule } from 'ngx-webcam';
@@ -31,8 +28,45 @@ import { CameraComponent } from './component/iphone-body/home-screen/iphonecamer
 import { PhotoComponent } from './component/iphone-body/home-screen/iphonecamera/photo/photo.component';
 import { MessageComponent } from './component/iphone-body/home-screen/message/message.component';
 import { CalculatorComponent } from './component/iphone-body/home-screen/calculator/calculator.component';
+import { HotelMainComponent } from './component/iphone-body/home-screen/hotel-app/hotel-main/hotel-main.component';
+
+import { MatMenuModule } from '@angular/material/menu';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatInputModule } from '@angular/material/input';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
+import { HotelCardComponent } from './component/iphone-body/home-screen/hotel-app/hotel-card/hotel-card.component';
+import { HotelInnerComponent } from './component/iphone-body/home-screen/hotel-app/hotel-inner/hotel-inner.component';
+import { AgmCoreModule } from '@agm/core';
+import { GoogleMapComponent } from './component/iphone-body/home-screen/hotel-app/google-map/google-map.component';
+import { FilterDrawerComponent } from './component/iphone-body/home-screen/hotel-app/hotel-card/filter-drawer/filter-drawer.component';
+
+
+const angularModule = [
+  MatDialogModule,
+  MatSnackBarModule,
+  MatProgressSpinnerModule,
+  MatMenuModule,
+  MatButtonModule,
+  MatIconModule,
+  MatDatepickerModule,
+  MatInputModule,
+  MatNativeDateModule,
+  MatSidenavModule,
+  MatSelectModule,
+  MatRadioModule,
+  MatCheckboxModule
+]
 
 
 
@@ -58,17 +92,23 @@ import { CalculatorComponent } from './component/iphone-body/home-screen/calcula
     PhotoComponent,
     MessageComponent,
     CalculatorComponent,
+    HotelMainComponent,
+    HotelCardComponent,
+    HotelInnerComponent,
+    GoogleMapComponent,
+    FilterDrawerComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatDialogModule,
-    MatSnackBarModule,
+    angularModule,
     FormsModule,
     HttpClientModule,
-    MatProgressSpinnerModule,
     WebcamModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAvcDy5ZYc2ujCS6TTtI3RYX5QmuoV8Ffw'
+    })
   ],
   providers: [DatePipe,
     LoadingService,
@@ -76,7 +116,8 @@ import { CalculatorComponent } from './component/iphone-body/home-screen/calcula
       provide: HTTP_INTERCEPTORS,
       useClass: LoadingInterceptor,
       multi: true
-    },],
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

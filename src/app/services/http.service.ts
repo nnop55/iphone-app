@@ -6,22 +6,32 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class HttpService {
+  public hotelsData: any[] = [];
 
-  rickMortyUrl: string = 'https://rickandmortyapi.com/api/character';
-  narutoUrl: string = 'https://api.jikan.moe/v4/anime?q=naruto&sfw';
+  private rickMortyApi: string = 'https://rickandmortyapi.com/api/character';
+  private narutoApi: string = 'https://api.jikan.moe/v4/anime?q=naruto&sfw';
+  private hotelCardApi: string = 'http://airbnb-dev.us-east-1.elasticbeanstalk.com/api/Hotel';
 
   constructor(private http: HttpClient) { }
 
   getRickMorty(): Observable<any> {
-    return this.http.get(this.rickMortyUrl);
+    return this.http.get(this.rickMortyApi);
   }
 
   getNaruto(): Observable<any> {
-    return this.http.get(this.narutoUrl);
+    return this.http.get(this.narutoApi);
   }
 
   getRickMortyById(name: string): Observable<any> {
-    return this.http.get(`${this.rickMortyUrl}/${name}`)
+    return this.http.get(`${this.rickMortyApi}/${name}`)
+  }
+
+  getAllHotels(): Observable<any> {
+    return this.http.get(this.hotelCardApi)
+  }
+
+  getHotelById(id: string): Observable<any> {
+    return this.http.get(`${this.hotelCardApi}/${id}`)
   }
 
 

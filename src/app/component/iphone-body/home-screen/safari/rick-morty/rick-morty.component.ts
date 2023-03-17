@@ -15,7 +15,7 @@ export class RickMortyComponent implements OnInit {
   constructor(private http: HttpService, private loader: LoadingService) { }
 
   ngOnInit(): void {
-    this.loader.loadingEmitter.subscribe(response => {
+    this.loader.loadingEmitter.subscribe((response: any) => {
       console.log(response);
       this.loadingStatus = response;
     })
@@ -23,7 +23,7 @@ export class RickMortyComponent implements OnInit {
   }
 
   getRickMorty() {
-    this.http.getRickMorty().subscribe(res => {
+    this.http.getRickMorty().subscribe((res: any) => {
       this.rickMortyList = res.results;
       console.log(this.rickMortyList);
       this.loadingStatus = false;

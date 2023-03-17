@@ -1,0 +1,50 @@
+<div class="main">
+
+    <div class="price-range">
+        <input type="text" placeholder="from" [(ngModel)]="shared.routeParam['priceFrom']">
+        <input type="text" placeholder="to" [(ngModel)]="shared.routeParam['priceTo']">
+    </div>
+
+    <mat-form-field>
+        <mat-label>Country</mat-label>
+        <mat-select [(ngModel)]="shared.routeParam['country']">
+            <mat-option *ngFor="let item of country" [value]="item.title">
+                {{item.title}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <div>
+        <mat-label>Property type</mat-label>
+        <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+            [(ngModel)]="shared.routeParam['propertyType']">
+            <mat-radio-button class="example-radio-button" *ngFor="let item of propertyType" [value]="item.title">
+                {{item.title}}
+            </mat-radio-button>
+        </mat-radio-group>
+    </div>
+
+    <div>
+        <mat-label>Type of place</mat-label>
+        <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group2"
+            [(ngModel)]="shared.routeParam['typeOfPlace']">
+            <mat-radio-button class="example-radio-button" *ngFor="let item of typeOfPlace" [value]="item.title">
+                {{item.title}}
+            </mat-radio-button>
+        </mat-radio-group>
+    </div>
+
+
+    <!-- <mat-form-field>
+<mat-label>Type of place</mat-label>
+<mat-select [(ngModel)]="shared.routeParam['typeOfPlace']">
+    <mat-option *ngFor="let item of http.hotelsData" [value]="item.typeOfPlace">
+        {{item.typeOfPlace}}
+    </mat-option>
+</mat-select>
+</mat-form-field> -->
+
+
+    <button mat-raised-button (click)="searchBtn()">Search</button>
+
+</div>
